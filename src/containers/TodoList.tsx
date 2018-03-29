@@ -8,7 +8,7 @@ import { TodoViewProperty } from "../store/TodoViewProperty";
 export default class TodoList extends React.Component<{}, TodoViewProperty> {
 
   @lazyInject(TodoStore)
-  store!: TodoStore
+  private store!: TodoStore
 
   constructor(props: {}) {
     super(props)
