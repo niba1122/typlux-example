@@ -4013,9 +4013,9 @@ typescript@^2.8.1:
   version "2.8.1"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.8.1.tgz#6160e4f8f195d5ba81d4876f9c0cc1fbc0820624"
 
-typlux@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/typlux/-/typlux-0.0.1.tgz#dd44bfb43595ea75fd43bdc1365e3b358f2f5e45"
+typlux@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/typlux/-/typlux-0.0.2.tgz#5559e4266fa11b6c077234b5e5523783704ba7f5"
 
 ua-parser-js@^0.7.9:
   version "0.7.17"

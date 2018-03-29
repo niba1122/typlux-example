@@ -23,6 +23,6 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "reflect-metadata": "^0.1.12",
-    "typlux": "^0.0.1"
+    "typlux": "^0.0.2"
   }
 }
