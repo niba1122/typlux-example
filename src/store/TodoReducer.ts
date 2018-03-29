@@ -1,5 +1,5 @@
 import { TodoState } from "./TodoState";
-import TodoActionType, { SetDoneTodo, AddTodo, ChangeNewTodoTitle, SetUndoneTodo } from "./TodoActionType";
+import TodoActionType, { DoneTodo, AddTodo, ChangeNewTodoTitle, UndoneTodo } from "./TodoActionType";
 
 const todoReducer: (action: TodoActionType, state: TodoState) => TodoState =
   (action: TodoActionType, state: TodoState) => {
@@ -8,16 +8,16 @@ const todoReducer: (action: TodoActionType, state: TodoState) => TodoState =
         ...state,
         newTodoTitle: action.title
       }
-    } else if (action instanceof SetDoneTodo || action instanceof SetUndoneTodo) {
+    } else if (action instanceof DoneTodo || action instanceof UndoneTodo) {
       return {
         ...state,
-        todos: state.todos.map((todo) => action.todo.id == todo.id ? action.todo : todo)
+        todos: state.todos.map((todo) => action.updatedTodo.id == todo.id ? action.updatedTodo : todo)
       }
     } else if (action instanceof AddTodo) {
       return {
         ...state,
         newTodoTitle: '',
-        todos: [action.todo, ...state.todos]
+        todos: [action.addedTodo, ...state.todos]
       }
     }
     return state

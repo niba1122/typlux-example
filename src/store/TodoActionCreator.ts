@@ -1,5 +1,5 @@
 import { ActionCreator, ImmutableVariable } from "typlux";
-import TodoActionType, { SetDoneTodo, AddTodo, ChangeNewTodoTitle, SetUndoneTodo } from "./TodoActionType";
+import TodoActionType, { DoneTodo, AddTodo, ChangeNewTodoTitle, UndoneTodo } from "./TodoActionType";
 import { TodoState } from "./TodoState";
 import { Todo } from "../model/Todo";
 import { TodoRepository } from "../repository/TodoRepository";
@@ -17,22 +17,22 @@ export class TodoActionCreator extends ActionCreator<TodoActionType, TodoState> 
   }
 
   submitNewTodo() {
-    let todo = this.todoRepository.addTodo(this.state.value.newTodoTitle)
-    this.dispatch(new AddTodo(todo))
+    let addedTodo = this.todoRepository.addTodo(this.state.value.newTodoTitle)
+    this.dispatch(new AddTodo(addedTodo))
   }
 
   clickCheckbox(id: number, checked: boolean) {
     if (checked) {
-      let todo = this.todoRepository.doneTodo(id)
-      this.dispatch(new SetDoneTodo(todo))
+      let updatedTodo = this.todoRepository.doneTodo(id)
+      this.dispatch(new DoneTodo(updatedTodo))
     } else {
-      let todo = this.todoRepository.undoneTodo(id)
-      this.dispatch(new SetUndoneTodo(todo))
+      let updatedTodo = this.todoRepository.undoneTodo(id)
+      this.dispatch(new UndoneTodo(updatedTodo))
     }
   }
 
   clickSetDoneButton(id: number) {
     let todo = this.todoRepository.doneTodo(id)
-    this.dispatch(new SetDoneTodo(todo))
+    this.dispatch(new DoneTodo(todo))
   }
 }
